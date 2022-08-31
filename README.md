@@ -4,6 +4,12 @@
 
 Chatwork の Room にメッセージを送信する Action です。
 
+以下の Chatwork API を使用しています。
+
+- https://developer.chatwork.com/reference/post-rooms-room_id-messages
+
+## 使い方
+
 以下のように使用します。
 
 ```yml
