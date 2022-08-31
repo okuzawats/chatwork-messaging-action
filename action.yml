@@ -1,15 +1,23 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Chatwork Messaging Action'
+description: 'Send message to Chatwork.'
+author: 'okuzawats'
+branding:
+  icon: 'message-square'
+  color: 'red'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  apiToken:
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+    description: 'Chatwork API token'
+  roomId:
+    required: true
+    description: 'Chatroom ID'
+  message:
+    required: true
+    description: 'Message to send'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.apiToken }}
+    - ${{ inputs.roomId }}
+    - ${{ inputs.message }}
