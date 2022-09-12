@@ -17,6 +17,7 @@ Chatwork の Room にメッセージを送信する Action です。
   with:
     apiToken: ${{ secrets.API_KEY }} # Chatwork の API キーです。secrets の利用を推奨します。
     roomId: ${{ secrets.ROOM_ID }} # Chatwork の Room ID です。secrets の利用を推奨します。
+    title: 'ここにタイトルを書きます。'
     message: 'ここにメッセージを書きます。'
 ```
 
