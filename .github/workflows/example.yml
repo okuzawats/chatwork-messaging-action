@@ -15,9 +15,11 @@ jobs:
       - name: set arguments
         id: arguments
         run: |
+          echo '::set-output name=title::"what time is it now?"'
           echo '::set-output name=message::"it is ${{ env.CURRENT_DATETIME }} now."'
       - uses: okuzawats/chatwork-messaging-action@v0.2
         with:
           apiToken: ${{ secrets.API_KEY }}
           roomId: ${{ secrets.ROOM_ID }}
+          title: ${{ steps.arguments.outputs.title }}
           message: ${{ steps.arguments.outputs.message }}
