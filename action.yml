@@ -11,6 +11,9 @@ inputs:
   roomId:
     required: true
     description: 'Chatroom ID'
+  title:
+    required: true
+    description: 'Title of the message to send'
   message:
     required: true
     description: 'Message to send'
@@ -20,4 +23,5 @@ runs:
   args:
     - ${{ inputs.apiToken }}
     - ${{ inputs.roomId }}
+    - ${{ inputs.title }}
     - ${{ inputs.message }}
