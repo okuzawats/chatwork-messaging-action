@@ -6,7 +6,7 @@ uri = URI.parse("https://api.chatwork.com/v2/rooms/#{params[:room_id]}/messages"
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-body = "body=#{params[:message]}"
+body = "body=[info][title]#{params[:message]}[/title]hello this is me.[/info]"
 headers = { "X-ChatWorkToken" => "#{params[:token]}" }
 
 response = http.post(uri.path, body, headers)
