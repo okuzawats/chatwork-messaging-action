@@ -16,5 +16,8 @@ headers = { "X-ChatWorkToken" => "#{params[:token]}" }
 
 response = http.post(uri.path, body, headers)
 
-puts response.code
-puts response.body
+if response.code == '200' && response.body.match(/^{"message_id":"[0-9]+"}/)
+  puts response.body
+else
+  raise StandardError.new("action failed! #{response.body}")
+end
