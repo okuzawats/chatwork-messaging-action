@@ -18,10 +18,20 @@ inputs:
     required: true
     description: 'Message to send'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.apiToken }}
-    - ${{ inputs.roomId }}
-    - ${{ inputs.title }}
-    - ${{ inputs.message }}
+  using: 'composite'
+  steps:
+    - name: checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: set up ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1.0'
+    - run: ruby $GITHUB_ACTION_PATH/main.rb
+      shell: sh
+      env:
+        API_TOKEN: ${{ inputs.apiToken }}
+        ROOM_ID: ${{ inputs.roomId }}
+        TITLE: ${{ inputs.title }}
+        MESSAGE: ${{ inputs.message }}
