@@ -6,7 +6,7 @@ jobs:
   message:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v3
       - name: set current datetime to env
         env:
           TZ: 'Asia/Tokyo'
@@ -17,7 +17,7 @@ jobs:
         run: |
           echo '::set-output name=title::"what time is it now?"'
           echo '::set-output name=message::"it is ${{ env.CURRENT_DATETIME }} now."'
-      - uses: okuzawats/chatwork-messaging-action@v0.4
+      - uses: okuzawats/chatwork-messaging-action@v0.5
         with:
           apiToken: ${{ secrets.API_KEY }}
           roomId: ${{ secrets.ROOM_ID }}
