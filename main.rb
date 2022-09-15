@@ -1,10 +1,10 @@
 require 'net/http'
 
 params = { 
-  token: ARGV[0],
-  room_id: ARGV[1],
-  title: ARGV[2][1, ARGV[2].length - 2],
-  message: ARGV[3][1, ARGV[3].length - 2]
+  token: ENV['API_TOKEN'],
+  room_id: ENV['ROOM_ID'],
+  title: ENV['TITLE'],
+  message: ENV['MESSAGE']
 }
 
 uri = URI.parse("https://api.chatwork.com/v2/rooms/#{params[:room_id]}/messages")
