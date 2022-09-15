@@ -22,3 +22,19 @@ Chatwork の Room にメッセージを送信する Action です。
 ```
 
 ワークフロー構文の書き方は、本リポジトリの `.github/workflows/` 内に格納してある、[example.yml](https://github.com/okuzawats/chatwork-messaging-action/blob/main/.github/workflows/example.yml)も参考にしてください。
+
+## Chatwork の使い方
+
+### API トークン
+
+[Chatwork API へようこそ！](https://developer.chatwork.com/docs)から「API の利用申請」を行い、発行された ID です。この ID を用いて投稿されたチャットは、この ID を発行したユーザーのチャットとして扱われます。
+
+### ルーム ID
+
+- チャットの説明 > グループチャットの設定 > チャット情報 > 画面下部のルーム ID
+
+または
+
+- Web 版でチャットルームを開いた時、URL に含まれる `rid` 以下の数字
+
+です。
