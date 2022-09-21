@@ -13,11 +13,9 @@ Chatwork の Room にメッセージを送信する Action です。
 以下のように使用します。
 
 ```yml
-- uses: okuzawats/chatwork-messaging-action@[コミットハッシュまたはタグを指定します]
-  with:
+- uses: okuzawats/chatwork-messaging-action@v1.0 # またはコミットハッシュを使用してください。
     apiToken: ${{ secrets.API_KEY }} # Chatwork の API キーです。secrets の利用を推奨します。
     roomId: ${{ secrets.ROOM_ID }} # Chatwork の Room ID です。secrets の利用を推奨します。
-    title: 'ここにタイトルを書きます。'
     message: 'ここにメッセージを書きます。'
 ```
 
@@ -38,3 +36,13 @@ Chatwork の Room にメッセージを送信する Action です。
 - Web 版でチャットルームを開いた時、URL に含まれる `rid` 以下の数字
 
 です。
+
+### メッセージ記法
+
+Chatwork のメッセージ記法については、以下を参照してください。
+
+- [メッセージ記法について](https://developer.chatwork.com/docs/message-notation)
+
+## バグ報告
+
+本リポジトリに Issue を作成してください。どのような状況で、どのようなバグが発生したのかを教えてください 🙇
