@@ -16,11 +16,9 @@ jobs:
       - name: set arguments
         id: arguments
         run: |
-          echo '::set-output name=title::"what time is it now?"'
-          echo '::set-output name=message::"it is ${{ env.CURRENT_DATETIME }} now."'
+          echo '::set-output name=message::"[info][title](beer)what time is it now?[/title]it is ${{ env.CURRENT_DATETIME }} now.[/info]"'
       - uses: ./
         with:
           apiToken: ${{ secrets.API_KEY }}
           roomId: ${{ secrets.ROOM_ID }}
-          title: ${{ steps.arguments.outputs.title }}
           message: ${{ steps.arguments.outputs.message }}
