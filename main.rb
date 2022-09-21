@@ -3,15 +3,18 @@ require 'net/http'
 params = { 
   token: ENV['API_TOKEN'],
   room_id: ENV['ROOM_ID'],
-  title: ENV['TITLE'],
   message: ENV['MESSAGE']
 }
+
+if params[:message].empty?
+  raise StandardError.new("empty message is not allowed.")
+end
 
 uri = URI.parse("https://api.chatwork.com/v2/rooms/#{params[:room_id]}/messages")
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-body = "body=[info][title]#{params[:title]}[/title]#{params[:message]}[/info]"
+body = "body=#{params[:message]}"
 headers = { "X-ChatWorkToken" => "#{params[:token]}" }
 
 response = http.post(uri.path, body, headers)
