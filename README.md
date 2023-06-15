@@ -14,6 +14,7 @@ Chatwork の Room にメッセージを送信する Action です。
 
 ```yml
 - uses: okuzawats/chatwork-messaging-action@v1.0 # またはコミットハッシュを使用してください。
+  with:
     apiToken: ${{ secrets.API_KEY }} # Chatwork の API キーです。secrets の利用を推奨します。
     roomId: ${{ secrets.ROOM_ID }} # Chatwork の Room ID です。secrets の利用を推奨します。
     message: 'ここにメッセージを書きます。'
