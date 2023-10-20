@@ -14,6 +14,9 @@ inputs:
   message:
     required: true
     description: 'Message to send'
+  taskUserId:
+    required: false
+    description: 'User in charge of task. '
 runs:
   using: 'composite'
   steps:
@@ -31,3 +34,4 @@ runs:
         API_TOKEN: ${{ inputs.apiToken }}
         ROOM_ID: ${{ inputs.roomId }}
         MESSAGE: ${{ inputs.message }}
+        TASK_USER_ID: ${{ inputs.taskUserId }}
