@@ -39,5 +39,4 @@ runs:
         API_TOKEN: ${{ inputs.apiToken }}
         ROOM_ID: ${{ inputs.roomId }}
         MESSAGE: ${{ inputs.message }}
-    - name: debug type
-      run: echo type = ${{ inputs.messageType }}
+        MESSAGE_TYPE: ${{ inputs.messageType }}

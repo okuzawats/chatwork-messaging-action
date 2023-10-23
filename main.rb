@@ -4,7 +4,10 @@ params = {
   token: ENV['API_TOKEN'],
   room_id: ENV['ROOM_ID'],
   message: ENV['MESSAGE'].delete_prefix('"').delete_suffix('"')
+  message_type: ENV['MESSAGE_TYPE']
 }
+
+puts message_type
 
 if params[:message].empty?
   raise StandardError.new("empty message is not allowed.")
