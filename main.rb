@@ -7,7 +7,12 @@ params = {
   message_type: ENV['MESSAGE_TYPE']
 }
 
-puts params[:message_type]
+# message type must be message or task.
+type = params[:message_type]
+valid_types = ["message", "task"]
+unless valid_types.include?
+  raise StandardError.new("type should be message or task.")
+end
 
 if params[:message].empty?
   raise StandardError.new("empty message is not allowed.")
