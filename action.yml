@@ -43,4 +43,4 @@ runs:
         ROOM_ID: ${{ inputs.roomId }}
         MESSAGE: ${{ inputs.message }}
         MESSAGE_TYPE: ${{ inputs.messageType }}
-        USER_IDS_TO_ASSIGN_TASK: ${{ userIdsToAssignTask }}
+        USER_IDS_TO_ASSIGN_TASK: ${{ inputs.userIdsToAssignTask }}
