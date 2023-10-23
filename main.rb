@@ -4,7 +4,8 @@ params = {
   token: ENV['API_TOKEN'],
   room_id: ENV['ROOM_ID'],
   message: ENV['MESSAGE'].delete_prefix('"').delete_suffix('"'),
-  message_type: ENV['MESSAGE_TYPE']
+  message_type: ENV['MESSAGE_TYPE'],
+  user_ids_to_assign_task: ENV['USER_IDS_TO_ASSIGN_TASK']
 }
 
 # message type must be message or task.
@@ -18,17 +19,36 @@ if params[:message].empty?
   raise StandardError.new("empty message is not allowed.")
 end
 
-uri = URI.parse("https://api.chatwork.com/v2/rooms/#{params[:room_id]}/messages")
-http = Net::HTTP.new(uri.host, uri.port)
-http.use_ssl = true
+if type == "message"
+  uri = URI.parse("https://api.chatwork.com/v2/rooms/#{params[:room_id]}/messages")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
 
-body = "body=#{params[:message]}"
-headers = { "X-ChatWorkToken" => "#{params[:token]}" }
+  body = "body=#{params[:message]}"
+  headers = { "X-ChatWorkToken" => "#{params[:token]}" }
 
-response = http.post(uri.path, body, headers)
+  response = http.post(uri.path, body, headers)
 
-if response.code == '200' && response.body.match(/^{"message_id":"[0-9]+"}/)
-  puts response.body
-else
-  raise StandardError.new("action failed! #{response.body}")
+  if response.code == '200'
+    puts response.body
+  else
+    raise StandardError.new("action failed! #{response.body}")
+  end
+end
+
+if type == "task"
+  uri = URI.parse("https://api.chatwork.com/v2/rooms/#{params[:room_id]}/tasks")
+  http = Net::HTTP.new(uri.host, uri.port)
+  http.use_ssl = true
+
+  body = "body=#{params[:message]}&to_ids=#{params[:user_ids_to_assign_task]}"
+  headers = { "X-ChatWorkToken" => "#{params[:token]}" }
+
+  response = http.post(uri.path, body, headers)
+
+  if response.code == '200'
+    puts response.body
+  else
+    raise StandardError.new("action failed! #{response.body}")
+  end
 end
