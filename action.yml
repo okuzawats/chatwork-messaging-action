@@ -24,7 +24,7 @@ inputs:
     description: 'Message to send'
   userIdsToAssignTask:
     required: false
-    description: 'You can specify multiple users to be in charge of a task, separated by commas. example 1,3,5'
+    description: 'User Id to be assigned to the task. Or you can specify multiple users, separated by commas. example 1,3,5'
 runs:
   using: 'composite'
   steps:
