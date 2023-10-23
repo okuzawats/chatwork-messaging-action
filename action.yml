@@ -22,6 +22,9 @@ inputs:
   message:
     required: true
     description: 'Message to send'
+  userIdsToAssignTask:
+    required: false
+    description: 'You can specify multiple users to be in charge of a task, separated by commas. example 1,3,5'
 runs:
   using: 'composite'
   steps:
@@ -40,3 +43,4 @@ runs:
         ROOM_ID: ${{ inputs.roomId }}
         MESSAGE: ${{ inputs.message }}
         MESSAGE_TYPE: ${{ inputs.messageType }}
+        USER_IDS_TO_ASSIGN_TASK: ${{ userIdsToAssignTask }}
