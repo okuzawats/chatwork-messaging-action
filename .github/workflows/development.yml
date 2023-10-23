@@ -22,5 +22,3 @@ jobs:
           apiToken: ${{ secrets.API_KEY }}
           roomId: ${{ secrets.ROOM_ID }}
           message: ${{ steps.arguments.outputs.message }}
-      - name: debug type
-        run: echo type = ${{ inputs.messageType }}
