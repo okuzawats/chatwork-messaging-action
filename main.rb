@@ -11,7 +11,7 @@ params = {
 # message type must be message or task.
 type = params[:message_type]
 valid_types = ["message", "task"]
-unless valid_types.include?
+unless valid_types.include?(type)
   raise StandardError.new("type should be message or task.")
 end
 
