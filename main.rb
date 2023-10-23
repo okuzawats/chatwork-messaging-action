@@ -7,7 +7,7 @@ params = {
   message_type: ENV['MESSAGE_TYPE']
 }
 
-puts message_type
+puts params[:message_type]
 
 if params[:message].empty?
   raise StandardError.new("empty message is not allowed.")
