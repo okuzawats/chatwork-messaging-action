@@ -11,9 +11,20 @@ inputs:
   roomId:
     required: true
     description: 'Chatroom ID'
+  messageType:
+    description: 'Message type to send. default is message.'
+    type: choice
+    default: 'message'
+    required: false
+    options:
+      - message
+      - task
   message:
     required: true
     description: 'Message to send'
+  userIdsToAssignTask:
+    required: false
+    description: 'User Id to be assigned to the task. Or you can specify multiple users, separated by commas. example 1,3,5'
 runs:
   using: 'composite'
   steps:
@@ -31,3 +42,5 @@ runs:
         API_TOKEN: ${{ inputs.apiToken }}
         ROOM_ID: ${{ inputs.roomId }}
         MESSAGE: ${{ inputs.message }}
+        MESSAGE_TYPE: ${{ inputs.messageType }}
+        USER_IDS_TO_ASSIGN_TASK: ${{ inputs.userIdsToAssignTask }}
