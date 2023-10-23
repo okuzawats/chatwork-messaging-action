@@ -24,8 +24,8 @@ jobs:
           message: ${{ steps.arguments.outputs.message }}
       - uses: ./
         with:
-          type: "task"
           apiToken: ${{ secrets.API_KEY }}
           roomId: ${{ secrets.ROOM_ID }}
           message: "you have to do this task!"
+          messageType: "task"
           userIdsToAssignTask: ${{ secrets.USER_ID_1 }}
