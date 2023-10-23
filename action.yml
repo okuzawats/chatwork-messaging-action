@@ -12,7 +12,7 @@ inputs:
     required: true
     description: 'Chatroom ID'
   messageType:
-    description: 'Message type send'
+    description: 'Message type to send. default is message.'
     type: choice
     default: 'message'
     required: false
