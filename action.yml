@@ -11,6 +11,14 @@ inputs:
   roomId:
     required: true
     description: 'Chatroom ID'
+  messageType:
+    description: 'Message type send'
+    type: choice
+    default: 'message'
+    required: false
+    options:
+      - message
+      - task
   message:
     required: true
     description: 'Message to send'
