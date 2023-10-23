@@ -4,7 +4,7 @@ params = {
   token: ENV['API_TOKEN'],
   room_id: ENV['ROOM_ID'],
   message: ENV['MESSAGE'].delete_prefix('"').delete_suffix('"'),
-  task_user_id: ENV['TASK_USER_ID'],
+  task_user_ids: ENV['TASK_USER_IDS'],
 }
 
 if params[:message].empty?
@@ -13,9 +13,9 @@ end
 
 base_uri = URI.parse("https://api.chatwork.com/v2/rooms/#{params[:room_id]}/")
 body = "body=#{params[:message]}"
-if params[:task_user_id]
+if params[:task_user_ids]
   uri = base_uri + "tasks"
-  body += "&to_ids=#{params[:task_user_id]}"
+  body += "&to_ids=#{params[:task_user_ids]}"
 else
   uri = base_uri + "messages"
 end
