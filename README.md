@@ -13,11 +13,23 @@ Chatwork の Room にメッセージを送信する Action です。
 以下のように使用します。
 
 ```yml
-- uses: okuzawats/chatwork-messaging-action@v1.0 # またはコミットハッシュを使用してください。
+- uses: okuzawats/chatwork-messaging-action@v1.1 # またはコミットハッシュを使用してください。
   with:
     apiToken: ${{ secrets.API_KEY }} # Chatwork の API キーです。secrets の利用を推奨します。
     roomId: ${{ secrets.ROOM_ID }} # Chatwork の Room ID です。secrets の利用を推奨します。
     message: 'ここにメッセージを書きます。'
+```
+
+タスク機能にも対応しました（v1.1〜）。`messageType` と `userIdsToAssignTask` を追加してください。`userIdsToAssignTask` には複数IDを指定できます。カンマ区切りでユーザーIDを指定してください。
+
+```yml
+- uses: okuzawats/chatwork-messaging-action@v1.1 # またはコミットハッシュを使用してください。
+  with:
+    apiToken: ${{ secrets.API_KEY }} # Chatwork の API キーです。secrets の利用を推奨します。
+    roomId: ${{ secrets.ROOM_ID }} # Chatwork の Room ID です。secrets の利用を推奨します。
+    message: '牛乳を買う'
+    messageType: 'task'
+    userIdsToAssignTask: USER_ID
 ```
 
 ワークフロー構文の書き方は、本リポジトリの `.github/workflows/` 内に格納してある、[example.yml](https://github.com/okuzawats/chatwork-messaging-action/blob/main/.github/workflows/example.yml)も参考にしてください。
@@ -37,6 +49,10 @@ Chatwork の Room にメッセージを送信する Action です。
 - Web 版でチャットルームを開いた時、URL に含まれる `rid` 以下の数字
 
 です。
+
+### ユーザー ID
+
+- 自分宛に返信した時に `aid=XXXXXXX` と表示される `XXXXXXX` の部分
 
 ### メッセージ記法
 
