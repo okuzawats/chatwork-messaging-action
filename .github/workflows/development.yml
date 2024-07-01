@@ -1,8 +1,10 @@
-name: send message
+name: "development"
+
 on:
   pull_request:
-    types: [opened, synchronize, ready_for_review]
-    branches: [main]
+    types: [ "opened", "synchronize", "ready_for_review" ]
+    branches: [ "main" ]
+
 jobs:
   message:
     runs-on: ubuntu-latest
