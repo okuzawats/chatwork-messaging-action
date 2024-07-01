@@ -4,6 +4,7 @@ author: 'okuzawats'
 branding:
   icon: 'message-square'
   color: 'red'
+
 inputs:
   apiToken:
     required: true
@@ -25,6 +26,7 @@ inputs:
   userIdsToAssignTask:
     required: false
     description: 'User Id to be assigned to the task. Or you can specify multiple users, separated by commas. example 1,3,5'
+
 runs:
   using: 'composite'
   steps:
