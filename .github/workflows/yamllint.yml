@@ -1,0 +1,33 @@
+name: "yamllint"
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+    types: [ "opened", "synchronize" ]
+
+jobs:
+  yamllint:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "checkout"
+        uses: "actions/checkout@v4"
+      - name: "review github actions for development yaml format"
+        uses: "reviewdog/action-yamllint@v1"
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          reporter: "github-pr-review"
+          level: "warning"
+          yamllint_flags: "-c .yamllint ./.github/workflows/"
+          fail_on_error: true
+      - name: "review github actions yaml format"
+        uses: "reviewdog/action-yamllint@v1"
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          reporter: "github-pr-review"
+          level: "warning"
+          yamllint_flags: "-c .yamllint ./action.yml"
+          fail_on_error: true
