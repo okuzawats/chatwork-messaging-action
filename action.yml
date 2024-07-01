@@ -34,8 +34,6 @@ runs:
         fetch-depth: 0
     - name: set up ruby
       uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.1.0'
     - run: ruby $GITHUB_ACTION_PATH/main.rb
       shell: sh
       env:
