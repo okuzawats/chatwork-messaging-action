@@ -1,8 +1,9 @@
-name: example
+name: "example"
 
 on:
   push:
-    branches: [main]
+    branches:
+      - "main"
 
 jobs:
   message:
