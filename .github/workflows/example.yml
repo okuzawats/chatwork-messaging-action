@@ -13,8 +13,7 @@ jobs:
       - name: "set current datetime"
         env:
           TZ: "Asia/Tokyo"
-        run: |
-          echo "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+        run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
       - name: set arguments
         id: arguments
         run: |
