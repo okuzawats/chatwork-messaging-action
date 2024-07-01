@@ -1,7 +1,9 @@
-name: send message
+name: example
+
 on:
   push:
     branches: [main]
+
 jobs:
   message:
     runs-on: ubuntu-latest
