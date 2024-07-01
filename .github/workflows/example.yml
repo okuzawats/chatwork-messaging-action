@@ -1,23 +1,26 @@
-name: send message
+name: "example"
+
 on:
   push:
-    branches: [main]
+    branches:
+      - "main"
+
 jobs:
   message:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v4
-      - name: set current datetime to env
+      - uses: "actions/checkout@v4"
+      - name: "set current datetime"
         env:
-          TZ: 'Asia/Tokyo'
+          TZ: "Asia/Tokyo"
         run: |
-          echo "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
-      - name: set arguments
-        id: arguments
+          echo "CURRENT_DATETIME=$(date + "%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+      - name: "set arguments"
+        id: "arguments"
         run: |
           echo '::set-output name=message::"[info][title](beer)what time is it now?[/title]it is ${{ env.CURRENT_DATETIME }} now.[/info]"'
-      - uses: okuzawats/chatwork-messaging-action@v1.1
+      - uses: "okuzawats/chatwork-messaging-action@v1.1"
         with:
-          apiToken: ${{ secrets.API_KEY }}
-          roomId: ${{ secrets.ROOM_ID }}
-          message: ${{ steps.arguments.outputs.message }}
+          apiToken: "${{ secrets.API_KEY }}"
+          roomId: "${{ secrets.ROOM_ID }}"
+          message: "${{ steps.arguments.outputs.message }}"

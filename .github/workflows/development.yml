@@ -1,31 +1,33 @@
-name: send message
+name: "development"
+
 on:
   pull_request:
-    types: [opened, synchronize, ready_for_review]
-    branches: [main]
+    types: [ "opened", "synchronize", "ready_for_review" ]
+    branches: [ "main" ]
+
 jobs:
   message:
-    runs-on: ubuntu-latest
+    runs-on: "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v4
-      - name: set current datetime to env
+      - uses: "actions/checkout@v4"
+      - name: "set current datetime"
         env:
-          TZ: 'Asia/Tokyo'
+          TZ: "Asia/Tokyo"
         run: |
-          echo "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
-      - name: set arguments
-        id: arguments
+          echo "CURRENT_DATETIME=$(date + "%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+      - name: "set arguments"
+        id: "arguments"
         run: |
           echo '::set-output name=message::"[info][title](beer)what time is it now?[/title]it is ${{ env.CURRENT_DATETIME }} now.[/info]"'
       - uses: ./
         with:
-          apiToken: ${{ secrets.API_KEY }}
-          roomId: ${{ secrets.ROOM_ID }}
-          message: ${{ steps.arguments.outputs.message }}
+          apiToken: "${{ secrets.API_KEY }}"
+          roomId: "${{ secrets.ROOM_ID }}"
+          message: "${{ steps.arguments.outputs.message }}"
       - uses: ./
         with:
-          apiToken: ${{ secrets.API_KEY }}
-          roomId: ${{ secrets.ROOM_ID }}
-          message: "you have to do this task!"
+          apiToken: "${{ secrets.API_KEY }}"
+          roomId: "${{ secrets.ROOM_ID }}"
+          message: "this is your task"
           messageType: "task"
-          userIdsToAssignTask: ${{ secrets.USER_ID_1 }}
+          userIdsToAssignTask: "${{ secrets.USER_ID_1 }}"
