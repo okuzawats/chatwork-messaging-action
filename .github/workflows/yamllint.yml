@@ -31,3 +31,11 @@ jobs:
           level: "warning"
           yamllint_flags: "-c .yamllint ./action.yml"
           fail_on_error: true
+      - name: "review dependabot yaml format"
+        uses: "reviewdog/action-yamllint@v1"
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          reporter: "github-pr-review"
+          level: "warning"
+          yamllint_flags: "-c .yamllint ./.github/dependabot.yml"
+          fail_on_error: true
