@@ -1,0 +1,24 @@
+name: "actionlint"
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+    types: [ "opened", "synchronize" ]
+
+jobs:
+  actionlint:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "checkout"
+        uses: "actions/checkout@v4"
+      - name: "review action"
+        uses: "reviewdog/action-actionlint@v1"
+        with:
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          reporter: "github-pr-review"
+          level: "warning"
+          fail_on_error: true
