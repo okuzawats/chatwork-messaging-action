@@ -1,9 +1,9 @@
-name: 'Chatwork Messaging Action'
-description: 'Send message to Chatwork.'
-author: 'okuzawats'
+name: "Chatwork Messaging Action"
+description: "Send message to Chatwork."
+author: "okuzawats"
 branding:
-  icon: 'message-square'
-  color: 'red'
+  icon: "message-square"
+  color: "red"
 
 inputs:
   apiToken:
