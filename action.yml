@@ -1,44 +1,48 @@
-name: 'Chatwork Messaging Action'
-description: 'Send message to Chatwork.'
-author: 'okuzawats'
+name: "Chatwork Messaging Action"
+description: "Send message to Chatwork."
+author: "okuzawats"
 branding:
-  icon: 'message-square'
-  color: 'red'
+  icon: "message-square"
+  color: "red"
+
 inputs:
   apiToken:
     required: true
-    description: 'Chatwork API token'
+    description: "Chatwork API token"
   roomId:
     required: true
-    description: 'Chatroom ID'
+    description: "Chatroom ID"
   messageType:
-    description: 'Message type to send. default is message.'
-    type: choice
-    default: 'message'
+    description: "Message type to send. default is message."
+    type: "choice"
+    default: "message"
     required: false
     options:
-      - message
-      - task
+      - "message"
+      - "task"
   message:
     required: true
-    description: 'Message to send'
+    description: "Message to send"
   userIdsToAssignTask:
     required: false
-    description: 'User Id to be assigned to the task. Or you can specify multiple users, separated by commas. example 1,3,5'
+    description: "User Id to be assigned to the task. Or you can specify multiple users, separated by commas. example 1,3,5"
+
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
-    - name: checkout
-      uses: actions/checkout@v4
+    - name: "checkout"
+      uses: "actions/checkout@v4"
       with:
         fetch-depth: 0
-    - name: set up ruby
-      uses: ruby/setup-ruby@v1
-    - run: ruby $GITHUB_ACTION_PATH/main.rb
-      shell: sh
+    - name: "set up ruby"
+      uses: "ruby/setup-ruby@v1"
+    - name: "run action"
+      run: |
+        ruby $GITHUB_ACTION_PATH/main.rb
+      shell: "sh"
       env:
-        API_TOKEN: ${{ inputs.apiToken }}
-        ROOM_ID: ${{ inputs.roomId }}
-        MESSAGE: ${{ inputs.message }}
-        MESSAGE_TYPE: ${{ inputs.messageType }}
-        USER_IDS_TO_ASSIGN_TASK: ${{ inputs.userIdsToAssignTask }}
+        API_TOKEN: "${{ inputs.apiToken }}"
+        ROOM_ID: "${{ inputs.roomId }}"
+        MESSAGE: "${{ inputs.message }}"
+        MESSAGE_TYPE: "${{ inputs.messageType }}"
+        USER_IDS_TO_ASSIGN_TASK: "${{ inputs.userIdsToAssignTask }}"
