@@ -13,17 +13,18 @@ jobs:
       - name: "set current datetime"
         env:
           TZ: "Asia/Tokyo"
-        run: | # do not remove the space after `date +`. you need this.
-          echo "CURRENT_DATETIME=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        # do not remove the space after `date +`. you need this.
+        run: | 
+          echo "CURRENT_DATETIME=$(date +"%Y-%m-%d %H:%M:%S")" >> "$GITHUB_ENV"
       - name: "set arguments"
         id: "arguments"
         run: |
-          echo '::set-output name=message::"[info][title](beer)what time is it now?[/title]it is ${{ env.CURRENT_DATETIME }} now.[/info]"'
+          echo "MESSAGE=[info][title](beer)what time is it now?[/title]it is ${{ env.CURRENT_DATETIME }} now.[/info]" >> "$GITHUB_ENV"
       - uses: ./
         with:
           apiToken: "${{ secrets.API_KEY }}"
           roomId: "${{ secrets.ROOM_ID }}"
-          message: "${{ steps.arguments.outputs.message }}"
+          message: "${{ env.MESSAGE }}"
       - uses: ./
         with:
           apiToken: "${{ secrets.API_KEY }}"
