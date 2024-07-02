@@ -20,7 +20,7 @@ jobs:
         id: "arguments"
         run: |
           echo "MESSAGE=[info][title](beer)what time is it now?[/title]it is ${{ env.CURRENT_DATETIME }} now.[/info]" >> "$GITHUB_ENV"
-      - uses: "okuzawats/chatwork-messaging-action@v1.1"
+      - uses: "okuzawats/chatwork-messaging-action@v1.2"
         with:
           apiToken: "${{ secrets.API_KEY }}"
           roomId: "${{ secrets.ROOM_ID }}"
