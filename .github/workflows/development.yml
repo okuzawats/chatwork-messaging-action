@@ -17,7 +17,8 @@ jobs:
           echo "CURRENT_DATETIME=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
       - name: "set arguments"
         id: "arguments"
-        run: echo "MESSAGE=[info][title](beer)what time is it now?[/title]it is ${{ env.CURRENT_DATETIME }} now.[/info]" >> "$GITHUB_ENV"
+        run: "|"
+          echo "MESSAGE=[info][title](beer)what time is it now?[/title]it is "${{ env.CURRENT_DATETIME }}" now.[/info]" >> "$GITHUB_ENV"
       - uses: ./
         with:
           apiToken: "${{ secrets.API_KEY }}"
