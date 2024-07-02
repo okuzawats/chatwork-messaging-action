@@ -1,6 +1,7 @@
 # Chatwork messaging action
 
-[![send message](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/example.yml/badge.svg)](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/example.yml)
+[![actionlint](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/actionlint.yml/badge.svg?branch=main)](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/actionlint.yml)
+[![yamllint](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/yamllint.yml/badge.svg?branch=main)](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/yamllint.yml)
 
 Chatwork の Room にメッセージを送信する Action です。
 
