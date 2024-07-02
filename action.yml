@@ -34,14 +34,15 @@ runs:
       uses: "actions/checkout@v4"
       with:
         fetch-depth: 0
-    - name: set up ruby
-      uses: ruby/setup-ruby@v1
-    - name: run action
-      run: ruby $GITHUB_ACTION_PATH/main.rb
-      shell: sh
+    - name: "set up ruby"
+      uses: "ruby/setup-ruby@v1"
+    - name: "run action"
+      run: |
+        ruby $GITHUB_ACTION_PATH/main.rb
+      shell: "sh"
       env:
-        API_TOKEN: ${{ inputs.apiToken }}
-        ROOM_ID: ${{ inputs.roomId }}
-        MESSAGE: ${{ inputs.message }}
-        MESSAGE_TYPE: ${{ inputs.messageType }}
-        USER_IDS_TO_ASSIGN_TASK: ${{ inputs.userIdsToAssignTask }}
+        API_TOKEN: "${{ inputs.apiToken }}"
+        ROOM_ID: "${{ inputs.roomId }}"
+        MESSAGE: "${{ inputs.message }}"
+        MESSAGE_TYPE: "${{ inputs.messageType }}"
+        USER_IDS_TO_ASSIGN_TASK: "${{ inputs.userIdsToAssignTask }}"
