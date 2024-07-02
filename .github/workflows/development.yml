@@ -18,7 +18,7 @@ jobs:
       - name: "set arguments"
         id: "arguments"
         run: |
-          echo "MESSAGE=[info][title](beer)what time is it now?[/title]it is ${{ env.CURRENT_DATETIME }} now.[/info]" >> $GITHUB_ENV
+          echo "MESSAGE=[info][title](beer)what time is it now?[/title]it is "${{ env.CURRENT_DATETIME }}" now.[/info]" >> $GITHUB_ENV
       - uses: ./
         with:
           apiToken: "${{ secrets.API_KEY }}"
