@@ -1,0 +1,29 @@
+name: "rubocop"
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+    types: [ "opened", "synchronize" ]
+
+jobs:
+  rubocop:
+    runs-on: "ubuntu-latest"
+    # install only rubocop
+    env:
+      BUNDLE_ONLY: "rubocop"
+    steps:
+      - uses: "actions/checkout@v4"
+      - uses: "ruby/setup-ruby@v1"
+        with:
+          bundler-cache: true
+      - uses: "reviewdog/action-rubocop@v2"
+        with:
+          fail_on_error: true
+          github_token: "${{ secrets.GITHUB_TOKEN }}"
+          reporter: "github-pr-review"
+          skip_install: true
+          use_bundler: true
