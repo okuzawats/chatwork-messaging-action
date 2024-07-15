@@ -1,5 +1,5 @@
 AllCops:
-  NewCops: enable
+  NewCops: "enable"
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:
