@@ -36,6 +36,10 @@ runs:
         fetch-depth: 0
     - name: "set up ruby"
       uses: "ruby/setup-ruby@v1"
+    - name: "deprecate task"
+      if: "${{ inputs.messageType }}" == "task"
+      run: |
+        echo "type is task"
     - name: "run action"
       run: |
         ruby $GITHUB_ACTION_PATH/main.rb
