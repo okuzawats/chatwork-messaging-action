@@ -37,10 +37,9 @@ runs:
     - name: "set up ruby"
       uses: "ruby/setup-ruby@v1"
     - name: "deprecate task"
+      if: ${{ true }}
       run: |
-        if [ "${{ github.event.inputs.messageType }}" == "task" ]; then
-          echo "type is task"
-        fi
+        echo "type is task"
       shell: "sh"
     - name: "run action"
       run: |
