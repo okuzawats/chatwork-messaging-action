@@ -39,7 +39,7 @@ runs:
     - name: "deprecate task"
       if: ${{ github.event.inputs.messageType == 'task' }}
       run: |
-        echo "type is task"
+        echo "::warning::type is task"
       shell: "sh"
     - name: "run action"
       run: |
