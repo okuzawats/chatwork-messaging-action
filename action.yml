@@ -40,6 +40,7 @@ runs:
       if: "${{ inputs.messageType }}" == "task"
       run: |
         echo "type is task"
+      shell: "sh"
     - name: "run action"
       run: |
         ruby $GITHUB_ACTION_PATH/main.rb
