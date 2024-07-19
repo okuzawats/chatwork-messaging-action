@@ -38,7 +38,8 @@ runs:
       uses: "ruby/setup-ruby@v1"
     - name: "deprecate task"
       run: |
-        if [ ${{ github.event.inputs.messageType }} == "task" ]; then
+        type = ${{ github.event.inputs.messageType }}
+        if [ "$type" == "task" ]; then
           echo "type is task"
         fi
       shell: "sh"
