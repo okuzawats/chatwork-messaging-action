@@ -1,7 +1,7 @@
 # Chatwork messaging action
 
 [![actionlint](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/actionlint.yml/badge.svg?branch=main)](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/actionlint.yml)
-[![rubocop](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/rubocop.yml/badge.svg?branch=main)](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/rubocop.yml)
+[![rubocop](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/rubocop.yml/badge.svg?event=pull_request)](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/rubocop.yml)
 [![yamllint](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/yamllint.yml/badge.svg?branch=main)](https://github.com/okuzawats/chatwork-messaging-action/actions/workflows/yamllint.yml)
 
 Chatwork の Room にメッセージを送信する Action です。
