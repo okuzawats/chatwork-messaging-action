@@ -12,6 +12,7 @@ inputs:
   roomId:
     required: true
     description: "Chatroom ID"
+  # deprecated inputs. this inputs parameter will be removed in the future version.
   messageType:
     description: "Message type to send. default is message."
     type: "choice"
@@ -36,6 +37,11 @@ runs:
         fetch-depth: 0
     - name: "set up ruby"
       uses: "ruby/setup-ruby@v1"
+    - name: "deprecate messageType"
+      if: ${{ !github.event.inputs.messageType }}
+      run: |
+        echo "::warning::messageType is now deprecated. If you use only message, just remove the parameter. Or if you use task, please use okuzawats/chatwork-task-action instead."
+      shell: "sh"
     - name: "run action"
       run: |
         ruby $GITHUB_ACTION_PATH/main.rb
