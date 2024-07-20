@@ -22,6 +22,9 @@ Chatwork の Room にメッセージを送信する Action です。
     message: 'ここにメッセージを書きます。'
 ```
 
+> [!WARNING]
+> v1.1で導入されたタスク機能は、将来のバージョンから削除されます。代わりに[okuzawats/chatwork-task-action](https://github.com/okuzawats/chatwork-task-action)を使用してください。
+
 タスク機能にも対応しました（v1.1〜）。`messageType` と `userIdsToAssignTask` を追加してください。`userIdsToAssignTask` には複数IDを指定できます。カンマ区切りでユーザーIDを指定してください。
 
 ```yml
