@@ -18,5 +18,5 @@ response = http.post(uri.path, body, headers)
 if response.code == '200'
   puts response.body
 else
-  raise StandardError.new("action failed! #{response.body}")
+  raise StandardError, "action failed! #{response.body}"
 end
