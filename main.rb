@@ -11,7 +11,7 @@ http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
 body = "body=#{params[:message]}"
-headers = { "X-ChatWorkToken" => "#{params[:token]}" }
+headers = { 'X-ChatWorkToken' => "#{params[:token]}" }
 
 response = http.post(uri.path, body, headers)
 
