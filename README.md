@@ -15,26 +15,11 @@ Chatwork の Room にメッセージを送信する Action です。
 以下のように使用します。
 
 ```yml
-- uses: okuzawats/chatwork-messaging-action@v1.1 # またはコミットハッシュを使用してください。
+- uses: okuzawats/chatwork-messaging-action@v2.0 # またはコミットハッシュを使用してください。
   with:
     apiToken: ${{ secrets.API_KEY }} # Chatwork の API キーです。secrets の利用を推奨します。
     roomId: ${{ secrets.ROOM_ID }} # Chatwork の Room ID です。secrets の利用を推奨します。
     message: 'ここにメッセージを書きます。'
-```
-
-> [!WARNING]
-> v1.1で導入されたタスク機能は、将来のバージョンから削除されます。代わりに[okuzawats/chatwork-task-action](https://github.com/okuzawats/chatwork-task-action)を使用してください。
-
-タスク機能にも対応しました（v1.1〜）。`messageType` と `userIdsToAssignTask` を追加してください。`userIdsToAssignTask` には複数IDを指定できます。カンマ区切りでユーザーIDを指定してください。
-
-```yml
-- uses: okuzawats/chatwork-messaging-action@v1.1 # またはコミットハッシュを使用してください。
-  with:
-    apiToken: ${{ secrets.API_KEY }} # Chatwork の API キーです。secrets の利用を推奨します。
-    roomId: ${{ secrets.ROOM_ID }} # Chatwork の Room ID です。secrets の利用を推奨します。
-    message: '牛乳を買う'
-    messageType: 'task'
-    userIdsToAssignTask: USER_ID
 ```
 
 ワークフロー構文の書き方は、本リポジトリの `.github/workflows/` 内に格納してある、[example.yml](https://github.com/okuzawats/chatwork-messaging-action/blob/main/.github/workflows/example.yml)も参考にしてください。
